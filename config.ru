@@ -11,9 +11,8 @@ end
 
 # What starts everything. Intro coponant/controller/class that satrts the whole logic
 # only controller has the run, all children will use keyword "use"
-
+use HikesController
 use StatesController
 run ApplicationController
-use TagsController
-use HikesController
+
 

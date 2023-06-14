@@ -14,6 +14,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'faker'
 gem 'tux'
+gem 'rack-cors'
 
 # dependencies for production to make bundler smaller 
 group :development do
