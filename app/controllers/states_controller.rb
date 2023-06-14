@@ -41,7 +41,7 @@ class StatesController < ApplicationController
   # DELETE: /states/5/delete
   delete "/states/:id" do
     state = State.find_by_id(params["id"])
-    if user&.destroy
+    if state&.destroy
       {errors: "Record successfully destroyed"}.to_json
     else
       {errors: "Record not found with id"}.to_json

@@ -14,5 +14,6 @@ end
 
 use StatesController
 run ApplicationController
+use TagsController
 use HikesController
 
