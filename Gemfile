@@ -19,7 +19,6 @@ gem 'rack-cors'
 # dependencies for production to make bundler smaller 
 group :development do
   gem 'sqlite3'
-  gem 'tux'
 end
 
 group :test do

@@ -5,6 +5,16 @@ require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
 # this ine creates a shortcut so that you can esier do delete/restarts of 
+desc "Start the server"
+task :server do  
+  if ActiveRecord::Base.connection.migration_context.needs_migration?
+    puts "Migrations are pending. Make sure to run `rake db:migrate` first."
+    return
+  end
+end
+
+
+
 def reload
     load_all "./app" if Dir.exists?("./app")
 end
