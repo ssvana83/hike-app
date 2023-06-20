@@ -1,13 +1,15 @@
 class HikesController < ApplicationController
+  set :default_content_type, 'application/json'
 
-  # GET: /hikes
+  # GET: /hikes  
   get "/hikes" do
       Hike.all.to_json
   end
 
-  # POST: /hikes
+  # POST: /hikes 
   post "/hikes" do
     hike = Hike.create(params)
+    binding.pry
     if hike.id
       hike.to_json(include: :states)
     else
@@ -30,7 +32,7 @@ class HikesController < ApplicationController
     if hike && hike.update(params)
       hike.to_json(include: :states)
     elsif !hike
-      {errors: "Record not founf with id provided"}.to_json
+      {errors: "Record not found with id provided"}.to_json
     else
       hike.errors.full_messages.to_sentence
     end

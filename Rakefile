@@ -1,10 +1,10 @@
-# this is my task manager. The way for me to run things from terminal and communicate with 
-# the application
+# this is my task manager (to run things from terminal and communicate with 
+# the application);
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
-# this ine creates a shortcut so that you can esier do delete/restarts of 
+# this line creates a shortcut;
 desc "Start the server"
 task :server do  
   if ActiveRecord::Base.connection.migration_context.needs_migration?
@@ -12,8 +12,6 @@ task :server do
     return
   end
 end
-
-
 
 def reload
     load_all "./app" if Dir.exists?("./app")

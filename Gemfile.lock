@@ -49,6 +49,8 @@ GEM
     public_suffix (5.0.1)
     racc (1.7.0)
     rack (2.2.7)
+    rack-contrib (2.3.0)
+      rack (~> 2.0)
     rack-cors (2.0.1)
       rack (>= 2.0.0)
     rack-protection (3.0.6)
@@ -116,6 +118,7 @@ DEPENDENCIES
   capybara
   faker
   pry
+  rack-contrib
   rack-cors
   rack-test
   rake

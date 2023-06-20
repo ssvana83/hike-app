@@ -1,5 +1,6 @@
 require "pry"
 class StatesController < ApplicationController
+  set :default_contect_type, 'application/json'
 
   # GET: /states
   get "/states" do

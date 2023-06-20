@@ -1,5 +1,4 @@
-# the package.json
-# where all gems are listed
+# the package.json where all gems are listed;
 
 source 'http://rubygems.org'
 
@@ -15,6 +14,7 @@ gem 'bcrypt'
 gem 'faker'
 gem 'tux'
 gem 'rack-cors'
+gem "rack-contrib"
 
 # dependencies for production to make bundler smaller 
 group :development do

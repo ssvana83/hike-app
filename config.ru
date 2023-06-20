@@ -2,13 +2,9 @@
 # rackup: middle layer to help setup applications
 
 # this gives access to everything in application;
-# good practice is "require_relative" for files, "require" for gems 
 require_relative './config/environment'
 
-# if ActiveRecord::Base.connection.migration_context.needs_migration?
-#   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
-# end
-
+# Allow CORS (Cross-Origin Resource Sharing) requests;
 use Rack::Cors do
   allow do
     origins '*'
@@ -16,9 +12,11 @@ use Rack::Cors do
   end
 end
 
-# use RACK::JSONBodyParser
-# What starts everything. Intro coponant/controller/class that satrts the whole logic
-# only controller has the run, all children will use keyword "use"
+# Parse JSON from the request body into the params hash;
+use Rack::JSONBodyParser
+
+# Intro componant/controller/class that starts the whole logic
+# controller (run) all children (use);
 use HikesController
 use StatesController
 run ApplicationController
