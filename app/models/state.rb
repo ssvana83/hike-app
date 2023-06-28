@@ -3,8 +3,8 @@ class State < ActiveRecord::Base
   # dependent: :destroy
   # whenever you destroy a state, also destroy all related info
   # validations that come with AR
-  validates :statename, presence: true
-  validates :townname, presence: true, uniqueness: true
+  # validates :statename, presence: true
+  # validates :townname, presence: true, uniqueness: true
 end
 
 # hikes.delete is a method now with inheritance
