@@ -1,12 +1,10 @@
 class HikesController < ApplicationController
   set :default_content_type, 'application/json'
 
-  # GET: /hikes  
   get "/hikes" do
       Hike.all.to_json
   end
 
-  # POST: /hikes 
   post "/hikes" do
     hike = Hike.create(params)
     binding.pry
@@ -17,7 +15,7 @@ class HikesController < ApplicationController
     end
   end
 
-  # GET: /hikes/5
+  
   get "/hikes/:id" do
     begin
       Hike.find(params["id"]).to_json(include: :states)
@@ -26,7 +24,6 @@ class HikesController < ApplicationController
      end
   end
 
-  # PATCH: /hikes/5
   patch "/hikes/:id" do
     hike = Hike.find_by_id(params["id"])
     if hike && hike.update(params)
@@ -38,7 +35,6 @@ class HikesController < ApplicationController
     end
   end
 
-  # DELETE: /hikes/5/delete
   delete "/hikes/:id" do
     hike = Hike.find_by_id(params["id"])
     if hike&.destroy
@@ -47,4 +43,5 @@ class HikesController < ApplicationController
       {errors: "Record not found with id"}.to_json
     end
   end
+
 end
