@@ -1,15 +1,13 @@
 class HikesController < ApplicationController
   set :default_content_type, 'application/json'
 
-  # get "/hikes" do
-  #     Hike.all.to_json
-  # end
-
-  # added from e to replace above
+  # HIKES INDEX ROUTE:
   get "/hikes" do
-    # render all of the books as JSON
-    Hike.all.to_json(include: [state: {only: [:id, :name]}], except: [:created_at, :updated_at])
+      Hike.all.to_json
   end
+
+
+  
 
   # added from e as a new operation completley
   get "/states/:state_id/hikes" do
@@ -17,19 +15,20 @@ class HikesController < ApplicationController
     @state.hikes.to_json(include: [:state])
   end
 
-  # get "/hikes/:id" do
-  #   begin
-  #     Hike.find(params["id"]).to_json(include: :states)
-  #   rescue ActiveRecord::RecordNotFound => e
-  #     {errors: e}.to_json
-  #    end
-  # end
+  # HIKES SHOW ROUTE:
+  get "/hikes/:id" do
+    begin
+      Hike.find(params["id"]).to_json(include: :states)
+    rescue ActiveRecord::RecordNotFound => e
+      {errors: e}.to_json
+     end
+  end
 
   # added from e to replace above
-  get "/hikes/:id" do
-    find_hike
-    hike_to_json
-  end
+  # get "/hikes/:id" do
+  #   find_hike
+  #   hike_to_json
+  # end
 
 
   # post "/hikes" do
