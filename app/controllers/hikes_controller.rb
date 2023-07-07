@@ -6,9 +6,6 @@ class HikesController < ApplicationController
       Hike.all.to_json
   end
 
-
-  
-
   # added from e as a new operation completley
   get "/states/:state_id/hikes" do
     find_state
@@ -31,9 +28,18 @@ class HikesController < ApplicationController
   # end
 
 
-  # post "/hikes" do
-  #   hike = Hike.create(params)
-  #   binding.pry
+  post "states/:state_id/hikes" do
+    hike = Hike.create(
+      name: params[:name],
+      length: params[:length],
+      difficulty: params[:difficulty],
+      estimated_time: params[:estimated_time],
+      state_id: params[:state_id]
+    )
+    hike.to_json
+  end
+
+    
   #   if hike.id
   #     hike.to_json(include: :states)
   #   else
@@ -42,15 +48,15 @@ class HikesController < ApplicationController
   # end
 
   # added from e to replace above
-  post "/states/:state_id/hikes" do
-    find_state
-    @hike = @state.hikes.build(params)
-    if @hike.save
-      hike_to_json
-    else
-      hike_error_messages
-    end
-  end
+  # post "/states/:state_id/hikes" do
+  #   find_state
+  #   @hike = @state.hikes.build(params)
+  #   if @hike.save
+  #     hike_to_json
+  #   else
+  #     hike_error_messages
+  #   end
+  # end
 
   
   # patch "/hikes/:id" do
