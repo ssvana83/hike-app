@@ -28,16 +28,16 @@ class HikesController < ApplicationController
   # end
 
 
-  post "states/:state_id/hikes" do
-    hike = Hike.create(
-      name: params[:name],
-      length: params[:length],
-      difficulty: params[:difficulty],
-      estimated_time: params[:estimated_time],
-      state_id: params[:state_id]
-    )
-    hike.to_json
-  end
+  # post "states/:state_id/hikes" do
+  #   hike = Hike.create(
+  #     name: params[:name],
+  #     length: params[:length],
+  #     difficulty: params[:difficulty],
+  #     estimated_time: params[:estimated_time],
+  #     state_id: params[:state_id]
+  #   )
+  #   hike.to_json
+  # end
 
     
   #   if hike.id
@@ -48,15 +48,15 @@ class HikesController < ApplicationController
   # end
 
   # added from e to replace above
-  # post "/states/:state_id/hikes" do
-  #   find_state
-  #   @hike = @state.hikes.build(params)
-  #   if @hike.save
-  #     hike_to_json
-  #   else
-  #     hike_error_messages
-  #   end
-  # end
+  post "/states/:id/hikes" do
+    find_state
+    @hike = @state.hikes.build(params)
+    if @hike.save
+      hike_to_json
+    else
+      hike_error_messages
+    end
+  end
 
   
   # patch "/hikes/:id" do
