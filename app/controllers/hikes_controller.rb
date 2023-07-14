@@ -21,33 +21,7 @@ class HikesController < ApplicationController
      end
   end
 
-  # added from e to replace above
-  # get "/hikes/:id" do
-  #   find_hike
-  #   hike_to_json
-  # end
 
-
-  # post "states/:state_id/hikes" do
-  #   hike = Hike.create(
-  #     name: params[:name],
-  #     length: params[:length],
-  #     difficulty: params[:difficulty],
-  #     estimated_time: params[:estimated_time],
-  #     state_id: params[:state_id]
-  #   )
-  #   hike.to_json
-  # end
-
-    
-  #   if hike.id
-  #     hike.to_json(include: :states)
-  #   else
-  #     hike.errors.full_messages.to_sentence
-  #   end
-  # end
-
-  # added from e to replace above
   post "/states/:id/hikes" do
     find_state
     @hike = @state.hikes.build(params)

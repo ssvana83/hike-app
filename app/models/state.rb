@@ -1,6 +1,5 @@
 class State < ActiveRecord::Base
-  has_many :hikes 
-  # dependent: :destroy
+  has_many :hikes, dependent: :destroy
   # whenever you destroy a state, also destroy all related info
   # validations that come with AR
   # validates :statename, presence: true

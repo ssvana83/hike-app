@@ -66,26 +66,26 @@ class StatesController < ApplicationController
   #   end
   # end
 
-  # delete "/states/:id" do
-  #   state = State.find_by_id(params["id"])
-  #   if state&.destroy
-  #     {errors: "Record successfully destroyed"}.to_json
-  #   else
-  #     {errors: "Record not found with id"}.to_json
-  #   end
-  # end
+  delete "/states/:id" do
+    state = State.find_by_id(params["id"])
+    if state&.destroy
+      {errors: "Record successfully destroyed"}.to_json
+    else
+      {errors: "Record not found with id"}.to_json
+    end
+  end
 
 
   # added from e to replace above
-  delete "/states/:id" do
-    find_state
-    if @state
-      @state.destroy
-      @state.to_json
-    else
-      { errors: ["State Doesn't Exist"] }.to_json
-    end
-  end
+  # delete "/states/:id" do
+  #   find_state
+  #   if @state
+  #     @state.destroy
+  #     @state.to_json
+  #   else
+  #     { errors: ["State Doesn't Exist"] }.to_json
+  #   end
+  # end
 
 
 # added from e as addition 
